@@ -1,5 +1,5 @@
 /*
-  Template Name: Varsity
+  Template Name: ENSIASD
   Author : MarkUps
   Author URI: http://www.markups.io/
   Version: 1.0
@@ -31,6 +31,12 @@
 */
 
 /* BASE - Base tyles, Variables, Mixins, etc. */
+.center-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* This makes sure the container takes up the full viewport height */
+}
 body {
   background-color: #ffffff;
   font-family: "Roboto", sans-serif;
@@ -79,7 +85,13 @@ h2 {
 img {
   border: none;
 }
-
+.center-all {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* This makes sure the container takes up the full viewport height */
+}
 .mu-read-more-btn {
   border: 1px solid #fff;
   color: #fff;
@@ -422,8 +434,88 @@ img {
   float: left;
   width: 100%;
 }
+#mu-course-content {
+  background-color: #f9f9f9; /* Light grey background */
+  padding: 50px 0; /* Padding top and bottom */
+}
+
+.mu-course-content-area {
+  font-family: Arial, sans-serif; /* Change the font family */
+}
+
+.mu-course-details-content p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 10px; /* Add some bottom margin for spacing */
+}
+
+/* Style the heading differently */
+.mu-course-details-content h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333; /* Darken the color for better contrast */
+  margin-bottom: 20px; /* Add more bottom margin to separate headings from paragraphs */
+}
+
+.mu-course-details-content h2 {
+  color: #333; /* Dark grey color for headings */
+  font-size: 24px; /* Font size for headings */
+  margin-bottom: 20px; /* Space below headings */
+}
+
+.mu-course-details-content p {
+  color: #666; /* Medium grey color for paragraphs */
+  font-size: 16px; /* Font size for paragraphs */
+  line-height: 1.6; /* Line height for paragraphs */
+}
+
+.mu-course-details-content ul {
+  padding-left: 20px; /* Space before list items */
+}
+.mu-course-details-content {
+  background-color: #f8f9fa; /* Light gray background */
+  padding: 20px; /* Add some padding around the content */
+  border-radius: 5px; /* Add rounded corners */
+}
+
+.mu-course-details-content h2 {
+  color: #007bff; /* Blue color for headings */
+  font-size: 24px; /* Increase font size for headings */
+  margin-bottom: 15px; /* Add space below headings */
+}
+
+.mu-course-details-content p {
+  font-size: 16px; /* Set font size for paragraphs */
+  line-height: 1.6; /* Set line height for better readability */
+  color: #333; /* Dark color for paragraphs */
+  margin-bottom: 15px; /* Add space below paragraphs */
+}
+
+.mu-course-details-content ul {
+  list-style-type: none; /* Remove default list bullets */
+  padding-left: 0; /* Remove default left padding */
+}
+
+.mu-course-details-content ul li {
+  margin-bottom: 8px; /* Add space between list items */
+}
+
+.mu-course-details-content ul li:before {
+  content: "\2022"; /* Add bullet symbol before list items */
+  color: #007bff; /* Match bullet color with headings */
+  font-size: 14px; /* Adjust bullet size */
+  display: inline-block;
+  width: 1em; /* Adjust space between bullet and text */
+  margin-left: -1em; /* Move bullet to the left for alignment */
+}
+.mu-course-details-content ul li {
+  color: #666; /* Medium grey color for list items */
+  font-size: 16px; /* Font size for list items */
+  line-height: 1.6; /* Line height for list items */
+  margin-bottom: 10px; /* Space below list items */
+}
 #mu-service .mu-service-area .mu-service-single {
-  background-color: #01bafd;
+  background-color: #013e7f;
   color: #fff;
   display: inline;
   float: left;
@@ -2184,12 +2276,12 @@ img {
   }
 
   .navbar-toggle {
-    background-color: #01bafd;
+    background-color: #013e7f;
     border-radius: 0;
   }
 
   .navbar-default .navbar-toggle {
-    border-color: #01bafd;
+    border-color: #013e7f;
   }
 
   .navbar-default .navbar-toggle .icon-bar {
@@ -2197,7 +2289,7 @@ img {
   }
 
   .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-    background-color: #01bafd;
+    background-color: #013e7f;
   }
 
   #mu-menu .navbar-default .navbar-nav li > a {
