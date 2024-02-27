@@ -52,6 +52,13 @@ a:hover {
 abbr[title] {
   border-bottom: 1px dotted;
 }
+.center-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* This makes sure the container takes up the full viewport height */
+}
 b,
 strong {
   font-weight: bold;

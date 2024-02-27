@@ -74,6 +74,37 @@
     visibility: hidden;
 }
 
+#mu-course-content {
+    background-color: #f9f9f9; /* Light grey background */
+    padding: 50px 0; /* Padding top and bottom */
+}
+
+.mu-course-content-area {
+    font-family: Arial, sans-serif; /* Change the font family */
+}
+
+.mu-course-details-content h2 {
+    color: #333; /* Dark grey color for headings */
+    font-size: 24px; /* Font size for headings */
+    margin-bottom: 20px; /* Space below headings */
+}
+
+.mu-course-details-content p {
+    color: #666; /* Medium grey color for paragraphs */
+    font-size: 16px; /* Font size for paragraphs */
+    line-height: 1.6; /* Line height for paragraphs */
+}
+
+.mu-course-details-content ul {
+    padding-left: 20px; /* Space before list items */
+}
+
+.mu-course-details-content ul li {
+    color: #666; /* Medium grey color for list items */
+    font-size: 16px; /* Font size for list items */
+    line-height: 1.6; /* Line height for list items */
+    margin-bottom: 10px; /* Space below list items */
+}
 .slick-slide
 {
     display: none;

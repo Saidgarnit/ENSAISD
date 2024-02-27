@@ -16,7 +16,13 @@
 	outline: none;
 	vertical-align: top;
 }
-
+.center-all {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* This makes sure the container takes up the full viewport height */
+}
 .fancybox-wrap {
 	position: absolute;
 	top: 0;
