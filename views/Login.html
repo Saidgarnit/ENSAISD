@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Star Admin2 </title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="../admin/vendors/feather/feather.css">
+  <link rel="stylesheet" href="../admin/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="../admin/vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="../admin/vendors/typicons/typicons.css">
+  <link rel="stylesheet" href="../admin/vendors/simple-line-icons/css/simple-line-icons.css">
+  <link rel="stylesheet" href="../admin/vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="../admin/css/vertical-layout-light/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="../admin/images/favicon.png" />
+  <script>
+    function validateLoginForm() {
+        // Reset previous error message
+        document.getElementById("error-message").innerText = "";
+    
+        // Check if the password is empty
+        var password = document.forms[0]["password"].value;
+        if (password === "") {
+            document.getElementById("error-message").innerText = "Password cannot be empty.";
+            return false;
+        }
+    
+        // Add other validation logic as needed
+    
+        return true;
+    }
+    
+    document.addEventListener("DOMContentLoaded", function() {
+    document.forms[0].addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        // AJAX request to login.php
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "login_view.php", true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+        xhr.onload = function() {
+            console.log('Response received:', xhr.responseText); // Add this line for debugging
+            var response = JSON.parse(xhr.responseText);
+
+            // Display error message
+            document.getElementById("error-message").innerText = response.error;
+
+            // Redirect if there's a URL
+            if (response.redirect_url) {
+                window.location.href = response.redirect_url;
+            }
+        };
+
+        // Serialize the form data
+        var formData = new FormData(document.forms[0]);
+        var data = new URLSearchParams(formData).toString();
+
+        console.log('Sending data:', data); // Add this line for debugging
+        xhr.send(data);
+    });
+});
+    </script>
+</head>
+
+<body>
+  <div class="container-scroller">
+    <div class="container-fluid page-body-wrapper full-page-wrapper">
+      <div class="content-wrapper d-flex align-items-center auth px-0">
+        <div class="row w-100 mx-0">
+          <div class="col-lg-4 mx-auto">
+            <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+              <div class="brand-logo">
+                <img src="../admin/images/logo.svg" alt="logo">
+              </div>
+              <h4>Hello! let's get started</h4>
+              <h6 class="fw-light">Sign in to continue.</h6>
+              <form class="pt-3" name="login_form" action="login_view.php" method="post" onsubmit="return validateLoginForm()">
+                <div class="form-group">
+                    <input type="email" name="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password" required>
+                    <!-- Display error message under the password textbox -->
+                    <div id="error-message" style="color: red;"></div>
+                </div>
+                <div class="mt-3">
+                    <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">SIGN IN</button>
+                </div>
+                <div class="my-2 d-flex justify-content-between align-items-center">
+                    <div class="form-check">
+                        <label class="form-check-label text-muted">
+                            <input type="checkbox" class="form-check-input">
+                            Keep me signed in
+                        </label>
+                    </div>
+                    <a href="#" class="auth-link text-black">Forgot password?</a>
+                </div>
+                
+                <div class="text-center mt-4 fw-light">
+                    Don't have an account? <a href="Register.html" class="text-primary">Create</a>
+                </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- content-wrapper ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+
+  
+
+  <script src="../admin/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="../admin/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="../admin/js/off-canvas.js"></script>
+  <script src="../admin/js/hoverable-collapse.js"></script>
+  <script src="../admin/js/template.js"></script>
+  <script src="../admin/js/settings.js"></script>
+  <script src="../admin/js/todolist.js"></script>
+  <!-- endinject -->
+</body>
+
+</html>
