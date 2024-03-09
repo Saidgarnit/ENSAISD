@@ -4,14 +4,13 @@ include 'config.php';
 $userID = $_SESSION['user_id'];
 
 // Fetch only username and email columns
-$queryUser = $db->prepare("SELECT nom, email FROM students WHERE id = :userID");
+$queryUser = $db->prepare("SELECT prenom,nom, email FROM students WHERE id = :userID");
 $queryUser->bindParam(':userID', $userID, PDO::PARAM_INT);
+
 $queryUser->execute();
 $user = $queryUser->fetch(PDO::FETCH_ASSOC);
 
-// Output the fetched data
-echo "Username: " . $user['nom'] . "<br>";
-echo "Email: " . $user['email'];
+
 ?>
 
 
@@ -36,7 +35,7 @@ echo "Email: " . $user['email'];
     <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
         <?php
         // Output the welcome message with fetched username
-        echo '<h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">' . htmlspecialchars($user['nom']) . '</span></h1>';
+        echo '<h1 class="welcome-text">Good Morning, <span class="text-black fw-bold">' . htmlspecialchars($user['nom']) . '  ' . htmlspecialchars($user['prenom']) . '</span></h1>';
         
         // Output the email
         echo '<h3 class="welcome-sub-text">'.$user['email'].'</h3>';
