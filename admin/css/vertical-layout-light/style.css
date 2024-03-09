@@ -170,7 +170,42 @@
     opacity: 1;
   }
 }
+/* .responsive-image {
+  max-width: 100%;
+  height: auto;
+} */
+.responsive-div {
+  width: 100%;
+  height: auto;
+}
+/* For small devices (phones) */
+@media (max-width: 575.98px) {
+  .todo-list-add-btn {
+      width: 100%;
+      margin-top: 10px; /* Adjust the margin as needed */
+  }
+}
 
+/* For medium devices (tablets) */
+@media (min-width: 576px) and (max-width: 991.98px) {
+  .todo-list-add-btn {
+      width: 50%;
+      margin-top: 0; /* Adjust the margin as needed */
+  }
+}
+
+/* For large devices (desktops) */
+@media (min-width: 992px) {
+  .todo-list-add-btn {
+      width: auto;
+      margin-top: 0; /* Adjust the margin as needed */
+  }
+}
+
+.responsive-div img {
+  max-width: 100%;
+  height: auto;
+}
 @-ms-keyframes flash {
   0% {
     opacity: 1;

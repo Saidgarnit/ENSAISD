@@ -30,6 +30,8 @@ $baseURL = "http://localhost/ENSAISD"; // Change 'ENSAISD' to the name of your p
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Espace Numerique</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/feather/feather.css">
@@ -47,6 +49,7 @@ $baseURL = "http://localhost/ENSAISD"; // Change 'ENSAISD' to the name of your p
   <link rel="stylesheet" href="css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="images/favicon.png" />
+  <link rel="stylesheet" href="/admin/css/vertical-layout-light/style.css">
 </head>
 <body>
 
@@ -65,23 +68,37 @@ $baseURL = "http://localhost/ENSAISD"; // Change 'ENSAISD' to the name of your p
               <p class="card-description">
                  <code></code>
               </p>
-              <div class="image-container d-flex justify-content-center">
-                <?php if (isset($data['src']) && $data['src'] != ''): ?>
-                    <img src="<?php echo $baseURL . '/' . $data['src']; ?>" alt="Emploi Image">
-                <?php else: ?>
-                    <p>No image found.</p>
-                <?php endif; ?>
+              <div class="image-container d-flex justify-content-center responsive-div">
+                <div class="image-container d-flex justify-content-center">
+                    <?php if (isset($data['src']) && $data['src'] != ''): ?>
+                        <img class="img-fluid" src="<?php echo $baseURL . '/' . $data['src']; ?>" alt="Emploi Image">
+                    <?php else: ?>
+                        <p>No image found.</p>
+                    <?php endif; ?>
+                </div>
+                
               </div>
-              <div class="description">
-                <p>Description: <?php echo $data['description']; ?></p>
-                <p>Created at: <?php echo $data['created_at']; ?></p>
-              </div>
+              <p>Description: <?php echo $data['description']; ?></p>
+              <p>Created at: <?php echo $data['created_at']; ?></p>
+              
+              <div class="description" style="display: flex; justify-content: space-between;">
+             
+             
+             
+              <div class="d-flex justify-content-end align-items-center">
+              <!-- <a href="<?php echo $baseURL . '/' . $data['src']; ?>" download>
+    <button class="add btn btn-primary btn-sm todo-list-add-btn" id="add-task">
+        <i class="mdi mdi-download"></i> Telecharger
+    </button>
+</a> -->
+                   </div>  
+          
+                </div>
             </div>
           </div>
         </div>
-    </div>  
+    </div>
 </div>
-
 <!-- content-wrapper ends -->
 <!-- partial:partials/_footer.html -->
 <?php include 'partials/_settings-panel.html'; ?>

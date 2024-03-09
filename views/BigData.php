@@ -1,10 +1,44 @@
+<?php
+// Establish a connection to your database
+$servername = "localhost";  // Change this to your server name
+$username = "root";     // Change this to your database username
+$password = "";     // Change this to your database password
+$dbname = "ecole";  // Change this to your database name
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Fetch image path, objectifs, and competences from the BigData table
+$sql = "SELECT image, objectifs, competences FROM BigData";
+$result = $conn->query($sql);
+
+// Check if there are any records
+if ($result->num_rows > 0) {
+    // Fetch the first record
+    $row = $result->fetch_assoc();
+    $imagePath = $row['image'];
+    $objectifs = $row['objectifs'];
+    $competences = $row['competences'];
+} else {
+    echo "No data found";
+}
+
+// Close the database connection
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">    
-    <title>ENSIASD | Securite</title>
+    <title>ENSIASD | Big Data</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
@@ -113,10 +147,10 @@
      <div class="row">
        <div class="col-md-12">
          <div class="mu-page-breadcrumb-area">
-           <h2>Securite  </h2>
+           <h2>Big Data </h2>
            <ol class="breadcrumb">
             <li><a href="#">Accueil</a></li>            
-            <li class="active">Securite </li>
+            <li style="color: aliceblue;"  class="active">Big Data </li>
           </ol>
          </div>
        </div>
@@ -137,31 +171,22 @@
                   <div class="col-md-12">
                     <div class="mu-latest-course-single">
                       <figure class="mu-latest-course-img">
-                        <a href="#"><img src="../assets/img/security2.jpg" alt="img"></a>
+                        <a href="#"><img src="../assets/img/big_data_1.jpg" alt="img"></a>
                         <figcaption class="mu-latest-course-imgcaption"></figcaption>
                       </figure>
                       <div class="mu-course-details-content">
                         <!-- Objectifs de la Formation -->
                         <div class="mu-course-details-content">
-                          <h2>Objectifs de la Formation</h2>
-                          <p>Former des ingénieurs informaticiens généralistes, polyvalents qui développent un ensemble de compétences dans des domaines divers des Technologies de l’Information et de la Communication (TIC).</p>
-                          <p>Former un profil capable de répondre aux besoins des entreprises utilisant et opérant dans les domaines des TIC et de l’ingénierie logicielle de manière générale et des métiers du Cybersécurité et de la Confiance Numérique en particulier.</p>
+                            <h2>Objectifs de la Formation</h2>
+                            <p><?php echo $objectifs; ?></p>
+                            <h2>Compétences</h2>
+                            <ul>
+                                <?php foreach(explode(';', $competences) as $competence): ?>
+                                    <li><?php echo $competence; ?></li>
+                                <?php endforeach; ?>
+                            </ul>
                         </div>
-                        
-                        <!-- Compétences Acquises à l'Issue de la Formation -->
-                        <h2>Compétences Acquises à l'Issue de la Formation</h2>
-                        <ul>
-                          <li> - Analyser tout type de problème posé à l’informatique.</li>
-                          <li> - Concevoir et développer un système d’informations.</li>
-                          <li> - Concevoir et déployer des architectures de l’infrastructure informatique.</li>
-                          <li> - Mettre en œuvre la virtualisation des architectures.</li>
-                          <li> - Concevoir, développer et déployer des applications Web et Mobiles sécurisées.</li>
-                          <li> - Concevoir et développer des architectures distribuées et parallèles sécurisées.</li>
-                          <li> - Administrer et sécuriser des infrastructures on-premise et Cloud.</li>
-                          <li> - Administrer et sécuriser un système d'information.</li>
-                          <li> - Mettre en œuvre les mesures de détection des attaques et des contreattaques.</li>
-                        </ul>
-                      </div>
+                      
                     </div>
                   </div>
                 </div>
