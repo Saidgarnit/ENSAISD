@@ -30,7 +30,7 @@ class UserController {
                     $_SESSION['user_email'] = $userData['email'];
     
                     // Set the URL for redirection
-                    $redirect_url = "../admin/student_profile.php";
+                    $redirect_url = "../admin/index.php";
                 } else {
                     $error_message = "Incorrect password.";
                 }

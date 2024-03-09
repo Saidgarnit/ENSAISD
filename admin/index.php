@@ -174,7 +174,9 @@ $grades = $queryGrades->fetchAll(PDO::FETCH_ASSOC);
                                     <p class="status-summary-ight-white mb-1">Modules</p>
                                   </div>
                                   <div class="col-sm-8">
-                                   
+                                    <div class="status-summary-chart-wrapper pb-4">
+                                      <canvas id="status-summary"></canvas>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
