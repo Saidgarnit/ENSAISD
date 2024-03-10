@@ -9,9 +9,16 @@ $userID = $_SESSION['user_id'];
 
 // Fetch student information
 $queryStudent = $db->prepare("SELECT * FROM students WHERE id = :studentID");
+$queryModule = $db->prepare("SELECT count(*) FROM grades WHERE StudentID = :studentID and Grade>=12");
+
 $queryStudent->bindParam(':studentID', $userID, PDO::PARAM_INT);
+$queryModule->bindParam(':studentID', $userID, PDO::PARAM_INT);
+
 $queryStudent->execute();
+$queryModule->execute();
+
 $student = $queryStudent->fetch(PDO::FETCH_ASSOC);
+$modules = $queryModule->fetch(PDO::FETCH_ASSOC);
 
 // Fetch grades and modules information
 $queryGrades = $db->prepare("
@@ -170,7 +177,7 @@ $grades = $queryGrades->fetchAll(PDO::FETCH_ASSOC);
                                 <div class="row">
                                   <div class="col-sm-4">
                                     
-                                    <h2 class="text-info">2</h2>
+                                  <h2 class="text-info"><?php echo $modules['count(*)']; ?></h2>
                                     <p class="status-summary-ight-white mb-1">Modules</p>
                                   </div>
                                   <div class="col-sm-8">
@@ -292,12 +299,7 @@ $grades = $queryGrades->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
-        <footer class="footer">
-          <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash.</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2021. All rights reserved.</span>
-          </div>
-        </footer>
+        
         <!-- partial -->
       </div>
       <!-- main-panel ends -->
