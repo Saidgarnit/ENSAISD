@@ -1,7 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
-    if (document.getElementById('eventContainer')) {
+    const eventContainer = document.getElementById('eventContainer');
+    const latestCourseSlide = document.getElementById('mu-latest-course-slide');
+
+    if (eventContainer) {
         fetchEvents(populateEvents);
-    } else if (document.getElementById('mu-latest-course-slide')) {
+    }
+
+    if (latestCourseSlide) {
         fetchEvents(populateLatestEvents);
     }
 });
