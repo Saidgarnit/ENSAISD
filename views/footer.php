@@ -11,12 +11,11 @@
               <div class="mu-footer-widget">
                 <h4>Information</h4>
                 <ul>
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="">Features</a></li>
-                  <li><a href="">Course</a></li>
-                  <li><a href="">Event</a></li>
-                  <li><a href="">Sitemap</a></li>
-                  <li><a href="">Term Of Use</a></li>
+                  <p>Taroudant,Maroc</p>
+                  
+                  <p>Copyright © ENSIASD 2024</p>
+                  <p>Design: Groupe 5</p>
+                 
                 </ul>
               </div>
             </div>
@@ -24,11 +23,11 @@
               <div class="mu-footer-widget">
                 <h4>Student Help</h4>
                 <ul>
-                  <li><a href="">Get Started</a></li>
-                  <li><a href="#">My Questions</a></li>
-                  <li><a href="">Download Files</a></li>
-                  <li><a href="">Latest Course</a></li>
-                  <li><a href="">Academic News</a></li>                  
+                  <li><a href="index.ph">Acceuil</a></li>
+                  <li><a href="contact.php">Contacter nous</a></li>
+                  <li><a href="admin/index.php">Espace étudiant</a></li>
+                  <li><a href="">Formation SITCN</a></li>
+                  <li><a href="">Formation SDBDIA</a></li>                  
                 </ul>
               </div>
             </div>
