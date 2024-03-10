@@ -1,11 +1,15 @@
 <?php
 include 'config.php';
 if (!isset($_SESSION['user_id'])) {
-    die("User not logged in.");
+  die("User not logged in.");
 }
 
 // Retrieve the user ID from the session
 $userID = $_SESSION['user_id'];
+
+// Fetch events
+$queryEvents = $db->query("SELECT * FROM events");
+$events = $queryEvents->fetchAll(PDO::FETCH_ASSOC);
 
 // Fetch student information
 $queryStudent = $db->prepare("SELECT * FROM students WHERE id = :studentID");
@@ -48,10 +52,11 @@ $grades = $queryGrades->fetchAll(PDO::FETCH_ASSOC);
   <link rel="stylesheet" href="css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="images/favicon.png" />
-  <link rel="stylesheet" href="path-to/node_modules/mdi/css/materialdesignicons.min.css"/>
+  <link rel="stylesheet" href="path-to/node_modules/mdi/css/materialdesignicons.min.css" />
 </head>
+
 <body>
-  <div class="container-scroller"> 
+  <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <?php include 'partials/_navbar.php'  ?>
     <!-- partial -->
@@ -59,107 +64,107 @@ $grades = $queryGrades->fetchAll(PDO::FETCH_ASSOC);
       <!-- partial:partials/_settings-panel.html -->
       <?php include 'partials/_settings-panel.html'  ?>
       <?php include 'partials/_sidebar.html'  ?>
-      
+
       <!-- partial -->
       <!-- partial:partials/_sidebar.html -->
-      
+
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
             <div class="col-sm-12">
               <div class="home-tab">
-               
+
                 <div class="tab-content tab-content-basic">
-                  <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview"> 
+                  <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview">
                     <div class="row">
-                      
-                    </div> 
+
+                    </div>
                     <div class="row">
                       <div class="col-lg-8 d-flex flex-column">
-                      <div class="col-12 grid-margin stretch-card">
-                            <div class="card card-rounded">
-                              <div class="card-body">
-                                <div class="d-sm-flex justify-content-between align-items-start">
-                                  <div>
-                                    <h4 class="card-title card-title-dash">Mes Notes</h4>
-                                   
-                                  </div>
-                                  <div>
-                                  <a class="btn btn-primary btn-lg text-white mb-0 me-0" href="student_notes.php">
-  <i class="mdi mdi-library-plus"></i>Voir Toutes Mes Notes
-</a>                                  </div>
-                                </div>
-                                <div class="table-responsive  mt-1">
-                                  <table class="table select-table">
-                                  <thead>
-                                <tr>
-                                  <th>
-                                    <div class="form-check form-check-flat mt-0">
-                                      <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input" aria-checked="false"><i
-                                          class="input-helper"></i></label>
-                                    </div>
-                                  </th>
-                                  <th>Nom Module</th>
-                                  <th>Niveau</th>
-                                  <th>Semestre</th>
-                                  <th>Note</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                              <?php foreach ($grades as $grade): ?>
-                <tr>
-                    <td>
-                        <div class="form-check form-check-flat mt-0">
-                            <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" aria-checked="false">
-                                <i class="input-helper"></i>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="d-flex">
-                            <div>
-                                <h6><?=$grade['ModuleName']; ?></h6>
-                                
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="d-flex">
-                            <div>
-                                <h6><?= $grade['Year']; ?></h6>
-                               
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="d-flex">
-                            <div>
-                                <h6><?= $grade['Semester']; ?></h6>
-                               
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="d-flex">
-                            <div>
-                                <h6><?= $grade['Grade']; ?></h6>
-                               
-                            </div>
-                        </div>
-                    </td>
-                    <!-- ... (other table cells) ... -->
-                </tr>
-            <?php endforeach; ?>
+                        <div class="col-12 grid-margin stretch-card">
+                          <div class="card card-rounded">
+                            <div class="card-body">
+                              <div class="d-sm-flex justify-content-between align-items-start">
+                                <div>
+                                  <h4 class="card-title card-title-dash">Mes Notes</h4>
 
-                              </tbody>
-                                  </table>
                                 </div>
+                                <div>
+                                  <a class="btn btn-primary btn-lg text-white mb-0 me-0" href="student_notes.php">
+                                    <i class="mdi mdi-library-plus"></i>Voir Toutes Mes Notes
+                                  </a>
+                                </div>
+                              </div>
+                              <div class="table-responsive  mt-1">
+                                <table class="table select-table">
+                                  <thead>
+                                    <tr>
+                                      <th>
+                                        <div class="form-check form-check-flat mt-0">
+                                          <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>
+                                        </div>
+                                      </th>
+                                      <th>Nom Module</th>
+                                      <th>Niveau</th>
+                                      <th>Semestre</th>
+                                      <th>Note</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <?php foreach ($grades as $grade) : ?>
+                                      <tr>
+                                        <td>
+                                          <div class="form-check form-check-flat mt-0">
+                                            <label class="form-check-label">
+                                              <input type="checkbox" class="form-check-input" aria-checked="false">
+                                              <i class="input-helper"></i>
+                                            </label>
+                                          </div>
+                                        </td>
+                                        <td>
+                                          <div class="d-flex">
+                                            <div>
+                                              <h6><?= $grade['ModuleName']; ?></h6>
+
+                                            </div>
+                                          </div>
+                                        </td>
+                                        <td>
+                                          <div class="d-flex">
+                                            <div>
+                                              <h6><?= $grade['Year']; ?></h6>
+
+                                            </div>
+                                          </div>
+                                        </td>
+                                        <td>
+                                          <div class="d-flex">
+                                            <div>
+                                              <h6><?= $grade['Semester']; ?></h6>
+
+                                            </div>
+                                          </div>
+                                        </td>
+                                        <td>
+                                          <div class="d-flex">
+                                            <div>
+                                              <h6><?= $grade['Grade']; ?></h6>
+
+                                            </div>
+                                          </div>
+                                        </td>
+                                        <!-- ... (other table cells) ... -->
+                                      </tr>
+                                    <?php endforeach; ?>
+
+                                  </tbody>
+                                </table>
                               </div>
                             </div>
                           </div>
+                        </div>
                       </div>
                       <div class="col-lg-4 d-flex flex-column">
                         <div class="row flex-grow">
@@ -169,7 +174,7 @@ $grades = $queryGrades->fetchAll(PDO::FETCH_ASSOC);
                                 <h4 class="card-title card-title-dash text-white mb-4">Modules valides</h4>
                                 <div class="row">
                                   <div class="col-sm-4">
-                                    
+
                                     <h2 class="text-info">2</h2>
                                     <p class="status-summary-ight-white mb-1">Modules</p>
                                   </div>
@@ -183,126 +188,88 @@ $grades = $queryGrades->fetchAll(PDO::FETCH_ASSOC);
                             </div>
                           </div>
                           <div class="col-md-6 col-lg-12 grid-margin stretch-card">
-                            
+
                           </div>
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-lg-8 d-flex flex-column">
-                        
-                       
 
-                        </div>
-                        
+
+
                       </div>
-                      <div class="col-lg-4 d-flex flex-column">
-                          <div class="col-12 grid-margin stretch-card">
-                            <div class="card card-rounded">
-                              <div class="card-body">
-                                <div class="row">
-                                  <div class="col-lg-12">
-                                  <div class="row flex-grow">
-                        
-                              
-                                <h4 class="card-title  card-title-dash">Recent Events</h4>
-                                <div class="list align-items-center border-bottom py-2">
-                                  <div class="wrapper w-100">
-                                    <p class="mb-2 font-weight-medium">
-                                      Change in Directors
-                                    </p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                      <div class="d-flex align-items-center">
-                                        <i class="mdi mdi-calendar text-muted me-1"></i>
-                                        <p class="mb-0 text-small text-muted">Mar 14, 2019</p>
+
+                    </div>
+                    <div class="col-lg-4 d-flex flex-column">
+                      <div class="col-12 grid-margin stretch-card">
+                        <div class="card card-rounded">
+
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-lg-12">
+                                <div class="row flex-grow">
+                                  <h4 class="card-title card-title-dash">Recent Events</h4>
+
+                                  <?php foreach ($events as $event) : ?>
+                                    <div class="list align-items-center border-bottom py-2">
+                                      <div class="wrapper w-100">
+                                        <p class="mb-2 font-weight-medium">
+                                          <?php echo $event['titre']; ?>
+                                        </p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                          <div class="d-flex align-items-center">
+                                            <i class="mdi mdi-calendar text-muted me-1"></i>
+                                            <p class="mb-0 text-small text-muted"><?php echo $event['eve_date']; ?></p>
+                                          </div>
+                                        </div>
                                       </div>
                                     </div>
-                                  </div>
-                                </div>
-                                <div class="list align-items-center border-bottom py-2">
-                                  <div class="wrapper w-100">
-                                    <p class="mb-2 font-weight-medium">
-                                      Other Events
-                                    </p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                      <div class="d-flex align-items-center">
-                                        <i class="mdi mdi-calendar text-muted me-1"></i>
-                                        <p class="mb-0 text-small text-muted">Mar 14, 2019</p>
-                                      </div>
+                                  <?php endforeach; ?>
+
+                                  <div class="list align-items-center pt-3">
+                                    <div class="wrapper w-100">
+                                      <p class="mb-0">
+                                        <a href="#" class="fw-bold text-primary">Show all <i class="mdi mdi-arrow-right ms-2"></i></a>
+                                      </p>
                                     </div>
-                                  </div>
-                                </div>
-                                <div class="list align-items-center border-bottom py-2">
-                                  <div class="wrapper w-100">
-                                    <p class="mb-2 font-weight-medium">
-                                      Quarterly Report
-                                    </p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                      <div class="d-flex align-items-center">
-                                        <i class="mdi mdi-calendar text-muted me-1"></i>
-                                        <p class="mb-0 text-small text-muted">Mar 14, 2019</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="list align-items-center border-bottom py-2">
-                                  <div class="wrapper w-100">
-                                    <p class="mb-2 font-weight-medium">
-                                      Change in Directors
-                                    </p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                      <div class="d-flex align-items-center">
-                                        <i class="mdi mdi-calendar text-muted me-1"></i>
-                                        <p class="mb-0 text-small text-muted">Mar 14, 2019</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                
-                                <div class="list align-items-center pt-3">
-                                  <div class="wrapper w-100">
-                                    <p class="mb-0">
-                                      <a href="#" class="fw-bold text-primary">Show all <i class="mdi mdi-arrow-right ms-2"></i></a>
-                                    </p>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                         
-                        </div>
-                                    
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                        
-                        
-                       
-                        <div class="row flex-grow">
-                          
+
                         </div>
                       </div>
                     </div>
+                  </div>
+
+
+
+                  <div class="row flex-grow">
+
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.html -->
-        <footer class="footer">
-          <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash.</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2021. All rights reserved.</span>
-          </div>
-        </footer>
-        <!-- partial -->
       </div>
-      <!-- main-panel ends -->
     </div>
-    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- content-wrapper ends -->
+  <!-- partial:partials/_footer.html -->
+  <footer class="footer">
+    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+      <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash.</span>
+      <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2021. All rights reserved.</span>
+    </div>
+  </footer>
+  <!-- partial -->
+  </div>
+  <!-- main-panel ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
 
@@ -329,4 +296,3 @@ $grades = $queryGrades->fetchAll(PDO::FETCH_ASSOC);
 </body>
 
 </html>
-
