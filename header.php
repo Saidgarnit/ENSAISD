@@ -51,7 +51,7 @@
           </button>
           <!-- LOGO -->              
           <!-- TEXT BASED LOGO -->
-          <a class="navbar-brand" href="index.html"><i class="fa fa-university"></i><span>ENSIASD</span></a>
+          <a class="navbar-brand" href="index.php"><i class="fa fa-university"></i><span>ENSIASD</span></a>
           <!-- IMG BASED LOGO  -->
           <!-- <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png" alt="logo"></a> -->
         </div>
@@ -61,8 +61,8 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Formation <span class="fa fa-angle-down"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="Securite.html">Securite </a></li>                
-                <li><a href="BigData.html">Big Data </a></li>                
+                <li><a href="Securite.php">Securite </a></li>                
+                <li><a href="BigData.php">Big Data </a></li>                
               </ul>
             </li>           
             <li><a href="gallery.html">Gallery</a></li>

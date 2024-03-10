@@ -13,9 +13,16 @@ $events = $queryEvents->fetchAll(PDO::FETCH_ASSOC);
 
 // Fetch student information
 $queryStudent = $db->prepare("SELECT * FROM students WHERE id = :studentID");
+$queryModule = $db->prepare("SELECT count(*) FROM grades WHERE StudentID = :studentID and Grade>=12");
+
 $queryStudent->bindParam(':studentID', $userID, PDO::PARAM_INT);
+$queryModule->bindParam(':studentID', $userID, PDO::PARAM_INT);
+
 $queryStudent->execute();
+$queryModule->execute();
+
 $student = $queryStudent->fetch(PDO::FETCH_ASSOC);
+$modules = $queryModule->fetch(PDO::FETCH_ASSOC);
 
 // Fetch grades and modules information
 $queryGrades = $db->prepare("
@@ -174,8 +181,13 @@ $grades = $queryGrades->fetchAll(PDO::FETCH_ASSOC);
                                 <h4 class="card-title card-title-dash text-white mb-4">Modules valides</h4>
                                 <div class="row">
                                   <div class="col-sm-4">
+<<<<<<< HEAD
 
                                     <h2 class="text-info">2</h2>
+=======
+                                    
+                                  <h2 class="text-info"><?php echo $modules['count(*)']; ?></h2>
+>>>>>>> e8d9271a5346744723c60b426377f1e53b6deb88
                                     <p class="status-summary-ight-white mb-1">Modules</p>
                                   </div>
                                   <div class="col-sm-8">
@@ -254,6 +266,13 @@ $grades = $queryGrades->fetchAll(PDO::FETCH_ASSOC);
             </div>
           </div>
         </div>
+<<<<<<< HEAD
+=======
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        
+        <!-- partial -->
+>>>>>>> e8d9271a5346744723c60b426377f1e53b6deb88
       </div>
     </div>
   </div>
