@@ -74,7 +74,7 @@
               </ul>
             </li>            
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="404.html">404 Page</a></li>               
+            <li><a href="event.html">EVENT Page</a></li>               
             <li><a href="#" id="mu-search-icon"><i class="fa fa-search"></i></a></li>
           </ul>                     
         </div><!--/.nav-collapse -->        
