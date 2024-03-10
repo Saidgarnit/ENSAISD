@@ -46,7 +46,7 @@
     <div class="mu-slider-single">
       <div class="mu-slider-img">
         <figure>
-          <img src="../assets/img/slider/1.jpg" alt="img">
+          <img src="../assets/img/slider/background_ensiasd.jpg" alt="img">
         </figure>
       </div>
       <div class="mu-slider-content">
@@ -60,7 +60,7 @@
     <div class="mu-slider-single">
       <div class="mu-slider-img">
         <figure>
-          <img src="../assets/img/slider/2.jpg" alt="img">
+          <img src="../assets/img/slider/background_ensiasd.jpg" alt="img">
         </figure>
       </div>
       <div class="mu-slider-content">
@@ -74,7 +74,7 @@
     <div class="mu-slider-single">
       <div class="mu-slider-img">
         <figure>
-          <img src="../assets/img/slider/3.jpg" alt="img">
+          <img src="../assets/img/slider/background_ensiasd.jpg" alt="img">
         </figure>
       </div>
       <div class="mu-slider-content">
@@ -117,7 +117,7 @@
               <div class="col-lg-6 col-md-6">
                 <div class="mu-about-us-right">                            
                
-                  <img src="../assets/img/about-us.jpg" alt="img" height="350" width="555">
+                  <img src="../assets/img/mot_directeur.jpg" alt="img" height="350" width="555">
                               
                 </div>
               </div>
@@ -309,7 +309,7 @@
                                 echo "<div class='mu-testimonial-info'>";
                                 echo "<h4>" . $row["tittle"] . "</h4>";
                                 
-                                echo "<a href='Login.html' style='float:right; color: white;'>Voire Détails</a>";
+                                echo "<a href='Login.html' style='float:right; color: white;'>Voir Détails</a>";
                                 echo "</div>";
 
                                 echo "</div>";

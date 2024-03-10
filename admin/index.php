@@ -181,13 +181,8 @@ $grades = $queryGrades->fetchAll(PDO::FETCH_ASSOC);
                                 <h4 class="card-title card-title-dash text-white mb-4">Modules valides</h4>
                                 <div class="row">
                                   <div class="col-sm-4">
-<<<<<<< HEAD
 
                                     <h2 class="text-info">2</h2>
-=======
-                                    
-                                  <h2 class="text-info"><?php echo $modules['count(*)']; ?></h2>
->>>>>>> e8d9271a5346744723c60b426377f1e53b6deb88
                                     <p class="status-summary-ight-white mb-1">Modules</p>
                                   </div>
                                   <div class="col-sm-8">
@@ -266,24 +261,12 @@ $grades = $queryGrades->fetchAll(PDO::FETCH_ASSOC);
             </div>
           </div>
         </div>
-<<<<<<< HEAD
-=======
-        <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.html -->
-        
-        <!-- partial -->
->>>>>>> e8d9271a5346744723c60b426377f1e53b6deb88
       </div>
     </div>
   </div>
   <!-- content-wrapper ends -->
   <!-- partial:partials/_footer.html -->
-  <footer class="footer">
-    <div class="d-sm-flex justify-content-center justify-content-sm-between">
-      <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash.</span>
-      <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2021. All rights reserved.</span>
-    </div>
-  </footer>
+ 
   <!-- partial -->
   </div>
   <!-- main-panel ends -->
