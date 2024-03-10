@@ -38,78 +38,8 @@
 
   </head>
   <body> 
+  <?php include 'header.php'; ?>
 
-  <!--START SCROLL TOP BUTTON -->
-    <a class="scrollToTop" href="#">
-      <i class="fa fa-angle-up"></i>      
-    </a>
-  <!-- END SCROLL TOP BUTTON -->
-
-  <!-- Start header  -->
-
-  <!-- End header  -->
-  <!-- Start menu -->
-  <section id="mu-menu">
-    <nav class="navbar navbar-default" role="navigation">  
-      <div class="container">
-        <div class="navbar-header">
-          <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <!-- LOGO -->              
-          <!-- TEXT BASED LOGO -->
-          <a class="navbar-brand" href="index.html"><i class="fa fa-university"></i><span>ENSIASD</span></a>
-          <!-- IMG BASED LOGO  -->
-          <!-- <a class="navbar-brand" href="index.html"><img src="../assets/img/logo.png" alt="logo"></a> -->
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-            <li class="active"><a href="index.html">Home</a></li>            
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Formation <span class="fa fa-angle-down"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="Securite.php">Securite </a></li>                
-                <li><a href="BigData.php">Big data </a></li>                
-              </ul>
-            </li>           
-            <li><a href="gallery.html">Gallery</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <span class="fa fa-angle-down"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="blog-archive.html">Blog Archive</a></li>                
-                <li><a href="blog-single.html">Blog Single</a></li>                
-              </ul>
-            </li>            
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="Login.html">Espace Etudiant</a></li>
-            <li><a href="event.html">EVENT</a></li>               
-            <li><a href="#" id="mu-search-icon"><i class="fa fa-search"></i></a></li>
-          </ul>                     
-        </div><!--/.nav-collapse -->        
-      </div>     
-    </nav>
-  </section>
-  <!-- End menu -->
-  <!-- Start search box -->
-  <div id="mu-search">
-    <div class="mu-search-area">      
-      <button class="mu-search-close"><span class="fa fa-close"></span></button>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">            
-            <form class="mu-search-form">
-              <input type="search" placeholder="Type Your Keyword(s) & Hit Enter">              
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- End search box -->
   <!-- Start Slider -->
   <section id="mu-slider">
     <!-- Start single slider item -->
@@ -198,6 +128,66 @@
     </div>
   </section>
   <!-- End about us -->
+
+
+
+  <section id="mu-from-blog">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="mu-from-blog-area">
+            <!-- start title -->
+            <div class="mu-title">
+              <h2>ANNONCES
+              </h2>
+              
+            </div>     
+            <?php
+// Connexion à la base de données
+$servername = "localhost"; // Adresse du serveur MySQL
+$username = "root"; // Nom d'utilisateur MySQL
+$password = ""; // Mot de passe MySQL
+$database = "ecole"; // Nom de la base de données
+
+// Création de la connexion
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Vérifier la connexion
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Requête SQL pour sélectionner les annonces
+$sql = "SELECT * FROM annonces";
+$result = $conn->query($sql);
+
+// Affichage des annonces
+if ($result->num_rows > 0) {
+    // Output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<div>";
+        echo "<h2>" . $row["tittle"] . "</h2>";
+        echo "<p>" . $row["description"] . "</p>";
+        echo "<a href='Login.html' style='float:right;'>Voire Détails</a>";
+
+        // Ajoutez d'autres champs de votre table d'annonces ici...
+        echo "</div>";
+    }
+} else {
+    echo "Aucune annonce trouvée.";
+}
+
+// Fermer la connexion
+$conn->close();
+?>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
 
 
   <section id="mu-from-blog">
@@ -338,6 +328,16 @@
   </section>
   <!-- End our teacher -->
 
+
+
+
+
+
+
+
+
+  
+
   <!-- Start testimonial -->
   <section id="mu-testimonial">
     <div class="container">
@@ -425,59 +425,7 @@
         width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </section>
 
-  <!-- Start footer -->
-  <footer id="mu-footer">
-    <!-- start footer top -->
-    <div class="mu-footer-top">
-      <div class="container">
-        <div class="mu-footer-top-area">
-          <div class="row">
-             
 
-            <div class="col-lg-3 col-md-3 col-sm-3">
-              <div class="mu-footer-widget">
-                <h4>Information</h4>
-                <ul>
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="">Features</a></li>
-                  <li><a href="">Course</a></li>
-                  <li><a href="">Event</a></li>
-                  <li><a href="">Sitemap</a></li>
-                  <li><a href="">Term Of Use</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3">
-              <div class="mu-footer-widget">
-                <h4>Student Help</h4>
-                <ul>
-                  <li><a href="">Get Started</a></li>
-                  <li><a href="#">My Questions</a></li>
-                  <li><a href="">Download Files</a></li>
-                  <li><a href="">Latest Course</a></li>
-                  <li><a href="">Academic News</a></li>                  
-                </ul>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3">
-              <div class="mu-footer-widget">
-                <h4>Contact</h4>
-                <address>
-                  <p>Lasstah, taroudant, 700-450</p>
-                  <p>Phone: (212) 645315680 </p>
-                  <p>Website: www.ensiasdt.ma</p>
-                  <p>Email: contact.ensiasdt@gmail.com</p>
-                </address>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- end footer top -->
-    <!-- start footer bottom -->
-    <!-- end footer bottom -->
-  </footer>
   <!-- End footer -->
   <script src="eventScript.js"></script>
   <!-- jQuery library -->
@@ -497,6 +445,8 @@
   
   <!-- Custom js -->
   <script src="../assets/js/custom.js"></script> 
+
+  <?php include 'footer.php'; ?>
 
   </body>
 </html>
