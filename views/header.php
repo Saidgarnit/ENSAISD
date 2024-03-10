@@ -76,7 +76,7 @@
                       
             <li><a href="contact.php">Contact</a></li>
             <li><a href="Login.html">Espace Etudiant</a></li>
-            <li><a href="event.html">EVENT</a></li>               
+            <li><a href="event.php">EVENT</a></li>               
             <li><a href="#" id="mu-search-icon"><i class="fa fa-search"></i></a></li>
           </ul>                     
         </div><!--/.nav-collapse -->        
