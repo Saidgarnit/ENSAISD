@@ -7,7 +7,7 @@
     <title>ENSIASD | Home</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/logo_off.png">
 
     <!-- Font awesome -->
     <link href="../assets/css/font-awesome.css" rel="stylesheet">
@@ -126,66 +126,7 @@
         </div>
       </div>
     </div>
-  </section>
-  <!-- End about us -->
-
-
-
-  <section id="mu-from-blog">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="mu-from-blog-area">
-            <!-- start title -->
-            <div class="mu-title">
-              <h2>ANNONCES
-              </h2>
-              
-            </div>     
-            <?php
-// Connexion à la base de données
-$servername = "localhost"; // Adresse du serveur MySQL
-$username = "root"; // Nom d'utilisateur MySQL
-$password = ""; // Mot de passe MySQL
-$database = "ecole"; // Nom de la base de données
-
-// Création de la connexion
-$conn = new mysqli($servername, $username, $password, $database);
-
-// Vérifier la connexion
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Requête SQL pour sélectionner les annonces
-$sql = "SELECT * FROM annonces";
-$result = $conn->query($sql);
-
-// Affichage des annonces
-if ($result->num_rows > 0) {
-    // Output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "<div>";
-        echo "<h2>" . $row["tittle"] . "</h2>";
-        echo "<p>" . $row["description"] . "</p>";
-        echo "<a href='Login.html' style='float:right;'>Voire Détails</a>";
-
-        // Ajoutez d'autres champs de votre table d'annonces ici...
-        echo "</div>";
-    }
-} else {
-    echo "Aucune annonce trouvée.";
-}
-
-// Fermer la connexion
-$conn->close();
-?>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+ 
 
 
 
@@ -317,7 +258,7 @@ $conn->close();
           <div class="mu-our-teacher-area">
             <!-- begain title -->
             <div class="mu-title">
-              <h2>Qu'est ce que les autres pense sur l'ENSIASDT ?
+              <h2>Avis et Annonces
               </h2>
             <!-- End our teacher content -->           
           </div>
@@ -328,77 +269,62 @@ $conn->close();
   </section>
   <!-- End our teacher -->
 
-
-
-
-
-
-
-
-
-  
-
   <!-- Start testimonial -->
   <section id="mu-testimonial">
     <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="mu-testimonial-area">
-            <div id="mu-testimonial-slide" class="mu-testimonial-content">
-              <!-- start testimonial single item -->
-              <div class="mu-testimonial-item">
-                <div class="mu-testimonial-quote">
-                  <blockquote>
-                    <p>L'une des milleures écoles d'ingénieurs au maroc, icroyable.</p>
-                  </blockquote>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mu-testimonial-area">
+                    <div id="mu-testimonial-slide" class="mu-testimonial-content">
+                        <!-- start testimonial single item -->
+                        <?php
+                        $servername = "localhost"; // Adresse du serveur MySQL
+                        $username = "root"; // Nom d'utilisateur MySQL
+                        $password = ""; // Mot de passe MySQL
+                        $database = "ecole"; // Nom de la base de données
+
+                        // Création de la connexion
+                        $conn = new mysqli($servername, $username, $password, $database);
+
+                        // Vérifier la connexion
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+
+                        // Requête SQL pour sélectionner les annonces
+                        $sql = "SELECT * FROM annonces";
+                        $result = $conn->query($sql);
+
+                        if ($result->num_rows > 0) {
+                            // Output data of each row
+                            while($row = $result->fetch_assoc()) {
+                                echo "<div class='mu-testimonial-item'>";
+                                
+                                echo "<div class='mu-testimonial-quote'>";
+                                echo "<blockquote>";
+                                echo "<p>" . $row["description"] . "</p>";
+                                echo "</blockquote>";
+                                echo "</div>";
+
+                                echo "<div class='mu-testimonial-info'>";
+                                echo "<h4>" . $row["tittle"] . "</h4>";
+                                
+                                echo "<a href='Login.html' style='float:right; color: white;'>Voire Détails</a>";
+                                echo "</div>";
+
+                                echo "</div>";
+                            }
+                        } else {
+                            echo "Aucune annonce trouvée.";
+                        }
+                        ?>
+                        <!-- end testimonial single item -->
+                    </div>
                 </div>
-                <div class="mu-testimonial-img">
-                  <img src="../assets/img/images.jpg" alt="img">
-                </div>
-                <div class="mu-testimonial-info">
-                  <h4>Ahmed Assimi</h4>
-                  <span>Etudiant á FS Agadir</span>
-                </div>
-              </div>
-              <!-- end testimonial single item -->
-              <!-- start testimonial single item -->
-              <div class="mu-testimonial-item">
-                <div class="mu-testimonial-quote">
-                  <blockquote>
-                    <p>C'es une école innovante avec leure directeurs et des professeurs compétents, Bon courage pour les étudiants.</p>
-                  </blockquote>
-                </div>
-                <div class="mu-testimonial-img">
-                  <img src="../assets/img/images.jpg" alt="img">
-                </div>
-                <div class="mu-testimonial-info">
-                  <h4>Malika Harba</h4>
-                  <span>Doctorant</span>
-                </div>
-              </div>
-              <!-- end testimonial single item -->
-              <!-- start testimonial single item -->
-              <div class="mu-testimonial-item">
-                <div class="mu-testimonial-quote">
-                  <blockquote>
-                    <p>Une formation forte, c'est l'un des poit de force de cette école, J'aime l'ambiance d'apprentissage, c'est magnifique.</p>
-                  </blockquote>
-                </div>
-                <div class="mu-testimonial-img">
-                  <img src="../assets/img/images.jpg" alt="img">
-                </div>
-                <div class="mu-testimonial-info">
-                  <h4>Rachid Raslmida</h4>
-                  <span>étudiant á EST Fes</span>
-                </div>
-              </div>
-              <!-- end testimonial single item -->
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </section>
+</section>
   <!-- End testimonial -->
 
   <!-- Start from blog -->
