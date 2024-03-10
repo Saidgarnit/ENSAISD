@@ -23,7 +23,7 @@ $user = $queryUser->fetch(PDO::FETCH_ASSOC);
         </div>
         <div>
           <a class="navbar-brand brand-logo" href="index.html">
-            <img src="images/logo.svg" alt="logo" />
+            <img src="images/logo.png"   style="width: auto; height: auto" alt="logo" />
           </a>
           <a class="navbar-brand brand-logo-mini" href="index.html">
             <img src="images/logo-mini.svg" alt="logo" />

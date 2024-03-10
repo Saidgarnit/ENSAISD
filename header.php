@@ -61,8 +61,8 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Formation <span class="fa fa-angle-down"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="Securite.html">Securite </a></li>                
-                <li><a href="BigData.html">Big Data </a></li>                
+                <li><a href="Securite.php">Securite </a></li>                
+                <li><a href="BigData.php">Big Data </a></li>                
               </ul>
             </li>           
             <li><a href="gallery.html">Gallery</a></li>
