@@ -29,8 +29,14 @@ class UserController {
                     $_SESSION['user_id'] = $userData['id'];
                     $_SESSION['user_email'] = $userData['email'];
     
-                    // Set the URL for redirection
-                    $redirect_url = "../admin/index.php";
+                    // Check if the user is an admin
+                    if ($userData['is_admin'] == 1) {
+                        // Set the URL for redirection to admin CRUD page
+                        $redirect_url = "../admin_crud/index.php";
+                    } else {
+                        // Set the URL for redirection to regular user page
+                        $redirect_url = "../admin/index.php";
+                    }
                 } else {
                     $error_message = "Incorrect password.";
                 }

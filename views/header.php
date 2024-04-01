@@ -58,10 +58,9 @@
           </button>
           <!-- LOGO -->              
           <!-- TEXT BASED LOGO -->
-          <a class="navbar-brand" href="index.html"></i><span>ENSIASD</span></a>
+          <!-- <a class="navbar-brand" href="index.html"></i><span>ENSIASD</span></a> -->
           <!-- IMG BASED LOGO  -->
-          <!-- <a class="navbar-brand" href="index.html"><img src="../assets/img/logo.png" alt="logo"></a> -->
-        </div>
+          <a class="navbar-brand" href="index.html"><img src="../assets/img/logo_off.png" alt="logo"  style=" margin-top: -10px; " width="320px" hight="50px"></a>        </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
             <li class="active"><a href="index.php">Home</a></li>            

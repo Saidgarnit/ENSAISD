@@ -96,7 +96,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <div class="card-body">
                             <h4 class="card-title">Mon Profil</h4>
                             <p class="card-description">
-                                Basic form elements
                             </p>
                             <form method="post" action="">
                                 <div class="form-group">
