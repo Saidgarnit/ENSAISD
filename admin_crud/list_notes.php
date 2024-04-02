@@ -1,15 +1,25 @@
 <?php
 include 'config.php';
-if (!isset($_SESSION['user_id'])) {
-  die("User not logged in.");
+$query = $db->prepare("
+    SELECT s.*, g.GradeID, m.ModuleName, m.Year, m.Semester, g.Grade
+    FROM students s
+    LEFT JOIN grades g ON s.id = g.StudentID
+    LEFT JOIN modules m ON g.ModuleID = m.ModuleID
+    where is_admin=0
+");
+$query->execute();
+$studentGrades = $query->fetchAll(PDO::FETCH_ASSOC);
+if (isset($_POST['delete_grade_id'])) {
+  // Perform deletion query
+  $delete_grade_id = $_POST['delete_grade_id'];
+  $deleteQuery = $db->prepare("DELETE FROM grades WHERE gradeID = :delete_grade_id");
+  $deleteQuery->bindParam(':delete_grade_id', $delete_grade_id, PDO::PARAM_INT);
+  $deleteQuery->execute();
+
+  // Redirect to the same page to refresh the data
+  header("Location: {$_SERVER['PHP_SELF']}");
+  exit();
 }
-$query = $db->query("SELECT id, nom, prenom, cne, cin, filiere FROM students where is_admin=0");
-
-// Store the student ID in a session variable
-// Fetch all rows as an associative array
-$students = $query->fetchAll(PDO::FETCH_ASSOC);
-
-
 ?>
 
 <!DOCTYPE html>
@@ -70,7 +80,7 @@ $students = $query->fetchAll(PDO::FETCH_ASSOC);
                             <div class="card-body">
                               <div class="d-sm-flex justify-content-between align-items-start">
                                 <div>
-                                  <h4 class="card-title card-title-dash">Tous Les Etudiants</h4>
+                                  <h4 class="card-title card-title-dash">Tous Les Notes</h4>
 
                                 </div>
                                 
@@ -82,69 +92,79 @@ $students = $query->fetchAll(PDO::FETCH_ASSOC);
             <th>
                 <div class="form-check form-check-flat mt-0">
                     <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>
+                        <input type="checkbox" class="form-check-input" aria-checked="false">
+                        <i class="input-helper"></i>
+                    </label>
                 </div>
             </th>
-            <th>Nom</th>
-            <th>Prenom</th>
-            <th>CNE</th>
-            <th>CIN</th>
-            <th>Filiere</th>
+            <th>Nom Etudiant</th>
+            <th>Prenom Etudiant</th>
+            <th>Module</th>
+            <th>Niveau</th>
+            <th>Semestre</th>
+            <th>Note</th>
             <th>Modifier</th>
             <th>Supprimer</th>
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($students as $student): ?>
-                <tr>
-                    <td>
-                        <div class="form-check form-check-flat mt-0">
-                            <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" aria-checked="false">
-                                <i class="input-helper"></i>
-                            </label>
+        <?php foreach ($studentGrades as $student): ?>
+            <tr>
+                <td>
+                    <div class="form-check form-check-flat mt-0">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" aria-checked="false">
+                            <i class="input-helper"></i>
+                        </label>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex">
+                        <div>
+                            <h6><?= $student['nom']; ?></h6>
                         </div>
-                    </td>
-                    <td>
-                        <div class="d-flex">
-                            <div>
-                                <h6><?= $student['nom']; ?></h6>
-                            </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex">
+                        <div>
+                            <h6><?= $student['prenom']; ?></h6>
                         </div>
-                    </td>
-                    <td>
-                        <div class="d-flex">
-                            <div>
-                                <h6><?= $student['prenom']; ?></h6>
-                            </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex">
+                        <div>
+                            <h6><?= $student['ModuleName']; ?></h6>
                         </div>
-                    </td>
-                    <td>
-                        <div class="d-flex">
-                            <div>
-                                <h6><?= $student['cne']; ?></h6>
-                            </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex">
+                        <div>
+                            <h6><?= $student['Year']; ?></h6>
                         </div>
-                    </td>
-                    <td>
-                        <div class="d-flex">
-                            <div>
-                                <h6><?= $student['cin']; ?></h6>
-                            </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex">
+                        <div>
+                            <h6><?= $student['Semester']; ?></h6>
                         </div>
-                    </td>
-                    <td>
-                        <div class="d-flex">
-                            <div>
-                                <h6><?= $student['filiere']; ?></h6>
-                            </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex">
+                        <div>
+                            <h6><?= $student['Grade']; ?></h6>
                         </div>
-                    </td>
-                    <td>
+                    </div>
+                </td>
+                <td>
                         <div class="d-flex">
                         <div class="row">
                            
-                        <a class="btn btn-warning" href="student_edit.php?id=<?= $student['id']; ?>">
+                        <a class="btn btn-warning" href="note_edit.php?id=<?= $student['GradeID']; ?>">
       Modifier
 </a>
 
@@ -152,18 +172,23 @@ $students = $query->fetchAll(PDO::FETCH_ASSOC);
                         </div>
                         </div>
                     </td>
-                    <td>
+                    <<td>
     <div class="d-flex">
         <div class="row">
-            <button type="button" class="btn btn-danger delete-btn" data-student-id="<?= $student['id']; ?>">Supprimer</button>
+            <form class="delete-form" method="post">
+                <input type="hidden" name="delete_grade_id" value="<?= $student['GradeID']; ?>">
+                <button type="submit" class="btn btn-danger delete-btn">Supprimer</button>
+            </form>
         </div>
     </div>
 </td>
-                    
-                </tr>
-            <?php endforeach; ?>
+
+
+            </tr>
+        <?php endforeach; ?>
     </tbody>
 </table>
+
                               </div>
                             </div>
                           </div>
@@ -213,13 +238,14 @@ $students = $query->fetchAll(PDO::FETCH_ASSOC);
   <!-- container-scroller -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-        var deleteButtons = document.querySelectorAll('.delete-btn');
-        deleteButtons.forEach(function (button) {
-            button.addEventListener('click', function () {
-                var studentId = button.getAttribute('data-student-id');
-                var confirmed = confirm('Are you sure you want to delete this student?');
+        var deleteForms = document.querySelectorAll('.delete-form');
+        deleteForms.forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent form submission
+                var gradeId = form.querySelector('input[name="delete_grade_id"]').value;
+                var confirmed = confirm('Are you sure you want to delete this grade?');
                 if (confirmed) {
-                    // Send AJAX request to delete the student
+                    // Send AJAX request to delete the grade
                     var xhr = new XMLHttpRequest();
                     xhr.open('POST', '');
                     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -228,15 +254,20 @@ $students = $query->fetchAll(PDO::FETCH_ASSOC);
                             // Reload the page to reflect changes
                             window.location.reload();
                         } else {
-                            alert('Failed to delete student. Please try again.');
+                            alert('Failed to delete grade. Please try again.');
                         }
                     };
-                    xhr.send('delete_id=' + studentId);
+                    xhr.send('delete_grade_id=' + gradeId);
                 }
             });
         });
     });
 </script>
+
+
+
+
+
 
 <?php
 // Check if the delete ID is set in the POST data

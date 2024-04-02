@@ -32,7 +32,7 @@ class UserController {
                     // Check if the user is an admin
                     if ($userData['is_admin'] == 1) {
                         // Set the URL for redirection to admin CRUD page
-                        $redirect_url = "../admin_crud/index.php";
+                        $redirect_url = "../admin_crud/list_etudiant.php";
                     } else {
                         // Set the URL for redirection to regular user page
                         $redirect_url = "../admin/index.php";

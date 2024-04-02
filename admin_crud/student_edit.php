@@ -30,8 +30,7 @@ $studentData = $queryStudent->fetch(PDO::FETCH_ASSOC);
 
 // Check if the student data is fetched successfully
 if (!$studentData) {
-    // Redirect or show an error message if the student data is not found
-    // You can handle this based on your application's logic
+    
     echo "Student data not found!";
     exit();
 }
@@ -72,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Espace Etudiant </title>
+  <title>Espace Admin </title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/feather/feather.css">
   <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
@@ -106,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Mon Profil</h4>
+                  <h4 class="card-title">Modifier Etudiant</h4>
                   <form method="post" action="">
                     <div class="form-group">
                       <label for="exampleInputName1">Nom</label>
