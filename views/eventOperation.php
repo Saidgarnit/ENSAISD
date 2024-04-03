@@ -27,3 +27,5 @@ $events = fetchEvents($conn);
 // Output events as JSON
 header('Content-Type: application/json');
 echo json_encode($events);
+
+

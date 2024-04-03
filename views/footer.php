@@ -58,6 +58,8 @@
   <script src="../assets/js/bootstrap.js"></script>   
   <!-- Slick slider -->
   <script type="text/javascript" src="../assets/js/slick.js"></script>
+  <link rel="icon" href="../assets/img/logo.png" type="image/png">
+
   <!-- Counter -->
   <script type="text/javascript" src="../assets/js/waypoints.js"></script>
   <script type="text/javascript" src="../assets/js/jquery.counterup.js"></script>  

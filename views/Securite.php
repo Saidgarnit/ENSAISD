@@ -45,6 +45,7 @@ $conn->close();
       <!-- Favicon -->
       <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
 
+      <link rel="icon" href="../assets/img/ji.png" type="image/png">
       <!-- Font awesome -->
       <link href="../assets/css/font-awesome.css" rel="stylesheet">
       <!-- Bootstrap -->
