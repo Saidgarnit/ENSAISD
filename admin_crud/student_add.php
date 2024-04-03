@@ -128,7 +128,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         placeholder="CNE" required >
                                 </div>
                                 <button type="submit" class="btn btn-primary me-2">Ajouter</button>
-                                <button class="btn btn-light">Cancel</button>
                             </form>
                         </div>
                     </div>
