@@ -75,151 +75,151 @@ if (isset($_POST['delete_grade_id'])) {
 
                     </div>
                     <div class="row">
-                        <div class="col-12 grid-margin stretch-card">
-                          <div class="card card-rounded">
-                            <div class="card-body">
-                              <div class="d-sm-flex justify-content-between align-items-start">
-                                <div>
-                                  <h4 class="card-title card-title-dash">Tous Les Notes</h4>
+                      <div class="col-12 grid-margin stretch-card">
+                        <div class="card card-rounded">
+                          <div class="card-body">
+                            <div class="d-sm-flex justify-content-between align-items-start">
+                              <div>
+                                <h4 class="card-title card-title-dash">Tous Les Notes</h4>
 
-                                </div>
-                                
                               </div>
-                              <div class="table-responsive  mt-1">
+
+                            </div>
+                            <div class="table-responsive  mt-1">
                               <table class="table select-table">
-    <thead>
-        <tr>
-            <th>
-                <div class="form-check form-check-flat mt-0">
-                    <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input" aria-checked="false">
-                        <i class="input-helper"></i>
-                    </label>
-                </div>
-            </th>
-            <th>Nom Etudiant</th>
-            <th>Prenom Etudiant</th>
-            <th>Module</th>
-            <th>Niveau</th>
-            <th>Semestre</th>
-            <th>Note</th>
-            <th>Modifier</th>
-            <th>Supprimer</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($studentGrades as $student): ?>
-            <tr>
-                <td>
-                    <div class="form-check form-check-flat mt-0">
-                        <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" aria-checked="false">
-                            <i class="input-helper"></i>
-                        </label>
-                    </div>
-                </td>
-                <td>
-                    <div class="d-flex">
-                        <div>
-                            <h6><?= $student['nom']; ?></h6>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="d-flex">
-                        <div>
-                            <h6><?= $student['prenom']; ?></h6>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="d-flex">
-                        <div>
-                            <h6><?= $student['ModuleName']; ?></h6>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="d-flex">
-                        <div>
-                            <h6><?= $student['Year']; ?></h6>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="d-flex">
-                        <div>
-                            <h6><?= $student['Semester']; ?></h6>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="d-flex">
-                        <div>
-                            <h6><?= $student['Grade']; ?></h6>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                        <div class="d-flex">
-                        <div class="row">
-                           
-                        <a class="btn btn-warning" href="note_edit.php?id=<?= $student['GradeID']; ?>">
-      Modifier
-</a>
+                                <thead>
+                                  <tr>
+                                    <th>
+                                      <div class="form-check form-check-flat mt-0">
+                                        <label class="form-check-label">
+                                          <input type="checkbox" class="form-check-input" aria-checked="false">
+                                          <i class="input-helper"></i>
+                                        </label>
+                                      </div>
+                                    </th>
+                                    <th>Nom Etudiant</th>
+                                    <th>Prenom Etudiant</th>
+                                    <th>Module</th>
+                                    <th>Niveau</th>
+                                    <th>Semestre</th>
+                                    <th>Note</th>
+                                    <th>Modifier</th>
+                                    <th>Supprimer</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <?php foreach ($studentGrades as $student) : ?>
+                                    <tr>
+                                      <td>
+                                        <div class="form-check form-check-flat mt-0">
+                                          <label class="form-check-label">
+                                            <input type="checkbox" class="form-check-input" aria-checked="false">
+                                            <i class="input-helper"></i>
+                                          </label>
+                                        </div>
+                                      </td>
+                                      <td>
+                                        <div class="d-flex">
+                                          <div>
+                                            <h6><?= $student['nom']; ?></h6>
+                                          </div>
+                                        </div>
+                                      </td>
+                                      <td>
+                                        <div class="d-flex">
+                                          <div>
+                                            <h6><?= $student['prenom']; ?></h6>
+                                          </div>
+                                        </div>
+                                      </td>
+                                      <td>
+                                        <div class="d-flex">
+                                          <div>
+                                            <h6><?= $student['ModuleName']; ?></h6>
+                                          </div>
+                                        </div>
+                                      </td>
+                                      <td>
+                                        <div class="d-flex">
+                                          <div>
+                                            <h6><?= $student['Year']; ?></h6>
+                                          </div>
+                                        </div>
+                                      </td>
+                                      <td>
+                                        <div class="d-flex">
+                                          <div>
+                                            <h6><?= $student['Semester']; ?></h6>
+                                          </div>
+                                        </div>
+                                      </td>
+                                      <td>
+                                        <div class="d-flex">
+                                          <div>
+                                            <h6><?= $student['Grade']; ?></h6>
+                                          </div>
+                                        </div>
+                                      </td>
+                                      <td>
+                                        <div class="d-flex">
+                                          <div class="row">
+
+                                            <a class="btn btn-warning" href="note_edit.php?id=<?= $student['GradeID']; ?>">
+                                              Modifier
+                                            </a>
 
 
-                        </div>
-                        </div>
-                    </td>
-                    <<td>
-    <div class="d-flex">
-        <div class="row">
-            <form class="delete-form" method="post">
-                <input type="hidden" name="delete_grade_id" value="<?= $student['GradeID']; ?>">
-                <button type="submit" class="btn btn-danger delete-btn">Supprimer</button>
-            </form>
-        </div>
-    </div>
-</td>
+                                          </div>
+                                        </div>
+                                      </td>
+                                      <<td>
+                                        <div class="d-flex">
+                                          <div class="row">
+                                            <form class="delete-form" method="post">
+                                              <input type="hidden" name="delete_grade_id" value="<?= $student['GradeID']; ?>">
+                                              <button type="submit" class="btn btn-danger delete-btn">Supprimer</button>
+                                            </form>
+                                          </div>
+                                        </div>
+                                        </td>
 
 
-            </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
+                                    </tr>
+                                  <?php endforeach; ?>
+                                </tbody>
+                              </table>
 
-                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                     
                     </div>
-                    <div class="row">
-                      <div class="col-lg-8 d-flex flex-column">
-
-
-
-                      </div>
-
-                    </div>
-                   
-                  </div>
-
-
-
-                  <div class="row flex-grow">
 
                   </div>
+                  <div class="row">
+                    <div class="col-lg-8 d-flex flex-column">
+
+
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+
+                <div class="row flex-grow">
+
                 </div>
               </div>
             </div>
           </div>
         </div>
-
       </div>
+
     </div>
+  </div>
   </div>
   <!-- content-wrapper ends -->
   <!-- partial:partials/_footer.html -->
@@ -237,48 +237,48 @@ if (isset($_POST['delete_grade_id'])) {
   </div>
   <!-- container-scroller -->
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var deleteForms = document.querySelectorAll('.delete-form');
-        deleteForms.forEach(function (form) {
-            form.addEventListener('submit', function (event) {
-                event.preventDefault(); // Prevent form submission
-                var gradeId = form.querySelector('input[name="delete_grade_id"]').value;
-                var confirmed = confirm('Are you sure you want to delete this grade?');
-                if (confirmed) {
-                    // Send AJAX request to delete the grade
-                    var xhr = new XMLHttpRequest();
-                    xhr.open('POST', '');
-                    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                    xhr.onload = function () {
-                        if (xhr.status === 200) {
-                            // Reload the page to reflect changes
-                            window.location.reload();
-                        } else {
-                            alert('Failed to delete grade. Please try again.');
-                        }
-                    };
-                    xhr.send('delete_grade_id=' + gradeId);
-                }
-            });
+    document.addEventListener('DOMContentLoaded', function() {
+      var deleteForms = document.querySelectorAll('.delete-form');
+      deleteForms.forEach(function(form) {
+        form.addEventListener('submit', function(event) {
+          event.preventDefault(); // Prevent form submission
+          var gradeId = form.querySelector('input[name="delete_grade_id"]').value;
+          var confirmed = confirm('Are you sure you want to delete this grade?');
+          if (confirmed) {
+            // Send AJAX request to delete the grade
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '');
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onload = function() {
+              if (xhr.status === 200) {
+                // Reload the page to reflect changes
+                window.location.reload();
+              } else {
+                alert('Failed to delete grade. Please try again.');
+              }
+            };
+            xhr.send('delete_grade_id=' + gradeId);
+          }
         });
+      });
     });
-</script>
+  </script>
 
 
 
 
 
 
-<?php
-// Check if the delete ID is set in the POST data
-if (isset($_POST['delete_id'])) {
+  <?php
+  // Check if the delete ID is set in the POST data
+  if (isset($_POST['delete_id'])) {
     // Perform deletion query
     $delete_id = $_POST['delete_id'];
     $deleteQuery = $db->prepare("DELETE FROM students WHERE id = :delete_id");
     $deleteQuery->bindParam(':delete_id', $delete_id, PDO::PARAM_INT);
     $deleteQuery->execute();
-}
-?>
+  }
+  ?>
   <!-- plugins:js -->
   <script src="vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->

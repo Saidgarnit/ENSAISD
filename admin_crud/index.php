@@ -238,7 +238,7 @@ $grades = $queryGrades->fetchAll(PDO::FETCH_ASSOC);
                                   <div class="list align-items-center pt-3">
                                     <div class="wrapper w-100">
                                       <p class="mb-0">
-                                        <a href="#" class="fw-bold text-primary">Show all <i class="mdi mdi-arrow-right ms-2"></i></a>
+                                        <a href="event.php" class="fw-bold text-primary">Show all <i class="mdi mdi-arrow-right ms-2"></i></a>
                                       </p>
                                     </div>
                                   </div>

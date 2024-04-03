@@ -50,7 +50,7 @@ function populateEvents(events) {
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary btn-view-details" title="View Event Details">View Details</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary btn-view-details" title="View Event Details" data-event-id="${event.id}">View Details</button>
                     </div>
                     <small class="text-muted">${event.eve_date}</small>
                 </div>
@@ -63,7 +63,9 @@ function populateEvents(events) {
         const viewDetailsButton = eventItem.querySelector('.btn-view-details');
         viewDetailsButton.addEventListener('click', function () {
             // Redirect to eventDetails.html with event ID as query parameter
-            window.location.href = `eventDetails.html?id=${event.id}`;
+            window.location.href = `eventDetail.php?id=${event.id}`;
+            //window.location.href = `/Ensiasd_versionFinale/ENSAISD/views/eventDetails.php?id=${event.id}`;
+
         });
     });
 }
