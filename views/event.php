@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ENSIASD | EVENEMENT</title>
 
+  <link rel="icon" href="../assets/img/ji.png" type="image/png">
+
   <!-- Favicon -->
   <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon" />
   <link rel="icon" href="../assets/img/logo.png" type="image/png">

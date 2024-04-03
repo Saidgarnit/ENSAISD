@@ -64,19 +64,19 @@
           <a class="navbar-brand" href="index.html"><img src="../assets/img/logo_off.png" alt="logo"  style=" margin-top: -10px; " width="320px" hight="50px"></a>        </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
-            <li class="active"><a href="index.php">Home</a></li>            
+            <li class="active"><a href="index.php">ACCEUIL</a></li>  
+            <li><a href="event.php">EVENEMENT</a></li>                         
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Formation <span class="fa fa-angle-down"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="Securite.php">Securite </a></li>                
-                <li><a href="BigData.php">Big data </a></li>                
+                <li><a href="Securite.php">SECURITE </a></li>                
+                <li><a href="BigData.php">BIG DATA </a></li>                
               </ul>
             </li>           
            
                       
-            <li><a href="contact.php">Contact</a></li>
-            <li><a href="Login.html">Espace Etudiant</a></li>
-            <li><a href="event.php">EVENT</a></li>               
+            <li><a href="contact.php">CONTACT</a></li>
+            <li><a href="Login.html">ESPACE ETUDIANT</a></li>
             <li><a href="#" id="mu-search-icon"><i class="fa fa-search"></i></a></li>
           </ul>                     
         </div><!--/.nav-collapse -->        

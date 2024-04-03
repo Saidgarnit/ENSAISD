@@ -37,6 +37,8 @@ $event = $query->fetchAll(PDO::FETCH_ASSOC);
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="css/vertical-layout-light/style.css">
+  <link rel="icon" href="../assets/img/ji.png" type="image/png">
+
   <!-- endinject -->
   <link rel="shortcut icon" href="images/favicona.png" />
   <link rel="stylesheet" href="path-to/node_modules/mdi/css/materialdesignicons.min.css" />
