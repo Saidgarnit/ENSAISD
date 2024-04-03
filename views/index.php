@@ -240,7 +240,7 @@
             <!-- Start latest course content -->
             <div id="mu-latest-course-slide" class="mu-latest-courses-content">
               <div class="col-lg-4 col-md-4 col-xs-12">
-                
+                <!--affichage-->
               </div>
             </div>
             <!-- End latest course content -->

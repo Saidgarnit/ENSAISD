@@ -81,14 +81,14 @@ function populateLatestEvents(events) {
             eventItem.innerHTML = `
                 <div class="mu-latest-course-single">
                     <figure class="mu-latest-course-img">
-                        <a href="#"><img src="data:image/${event.image_type};base64,${event.image_data}" alt="Event Image"></a>
+                        <a href="event.php"><img src="data:image/${event.image_type};base64,${event.image_data}" alt="Event Image"></a>
                         <figcaption class="mu-latest-course-imgcaption">
-                            <a href="#">Details</a>
-                            <span><i class="fa fa-clock-o"></i>${event.date_evenement}</span>
+                        <a href="event.php">Details</a>
+                        <span><i class="fa fa-clock-o"></i>${event.date_evenement}</span>
                         </figcaption>
                     </figure>
                     <div class="mu-latest-course-single-content">
-                        <h3><a href="#">${event.titre}</a></h3>
+                        <h3><a href="event.php">${event.titre}</a></h3>
                         <p>${event.description}</p>
                     </div>
                 </div>
