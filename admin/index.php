@@ -44,6 +44,8 @@ $grades = $queryGrades->fetchAll(PDO::FETCH_ASSOC);
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Espace Etudiant</title>
+  <link rel="icon" href="../assets/img/ji.png" type="image/png">
+
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/feather/feather.css">
   <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
@@ -59,7 +61,7 @@ $grades = $queryGrades->fetchAll(PDO::FETCH_ASSOC);
   <!-- inject:css -->
   <link rel="stylesheet" href="css/vertical-layout-light/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="images/favicon.png" />
+  <!--<link rel="shortcut icon" href="images/favicon.png" />-->
   <link rel="stylesheet" href="path-to/node_modules/mdi/css/materialdesignicons.min.css" />
 </head>
 

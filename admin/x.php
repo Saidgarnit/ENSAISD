@@ -33,6 +33,8 @@ $baseURL = "http://localhost/ENSAISD"; // Change 'ENSAISD' to the name of your p
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Espace Numerique</title>
+  <link rel="icon" href="../assets/img/ji.png" type="image/png">
+
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/feather/feather.css">
   <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
@@ -48,7 +50,7 @@ $baseURL = "http://localhost/ENSAISD"; // Change 'ENSAISD' to the name of your p
   <!-- inject:css -->
   <link rel="stylesheet" href="css/vertical-layout-light/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="images/favicon.png" />
+  <!--<link rel="shortcut icon" href="images/favicon.png" />-->
   <link rel="stylesheet" href="/admin/css/vertical-layout-light/style.css">
 </head>
 <body>

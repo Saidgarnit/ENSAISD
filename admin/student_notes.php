@@ -32,7 +32,9 @@ $grades = $queryGrades->fetchAll(PDO::FETCH_ASSOC);
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Star Admin2 </title>
+  <title>MES NOTES</title>
+  <link rel="icon" href="../assets/img/ji.png" type="image/png">
+
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/feather/feather.css">
   <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
@@ -48,7 +50,7 @@ $grades = $queryGrades->fetchAll(PDO::FETCH_ASSOC);
   <!-- inject:css -->
   <link rel="stylesheet" href="css/vertical-layout-light/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="images/favicon.png" />
+  <!--<link rel="shortcut icon" href="images/favicon.png" />-->
 </head>
 
 <body>
