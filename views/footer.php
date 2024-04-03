@@ -26,8 +26,10 @@
                   <li><a href="index.ph">Acceuil</a></li>
                   <li><a href="contact.php">Contacter nous</a></li>
                   <li><a href="admin/index.php">Espace étudiant</a></li>
-                  <li><a href="">Formation SITCN</a></li>
-                  <li><a href="">Formation SDBDIA</a></li>                  
+                  <li><a href="Securite.php">Formation SITCN</a></li>
+                  <li><a href="BigData.php">Formation SDBDIA</a></li>
+                  <li><a href="event.php">EVENEMENT</a></li>                  
+                  
                 </ul>
               </div>
             </div>
