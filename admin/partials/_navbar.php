@@ -22,10 +22,10 @@ $user = $queryUser->fetch(PDO::FETCH_ASSOC);
           </button>
         </div>
         <div>
-          <a class="navbar-brand brand-logo" href="index.php">
+          <a class="navbar-brand brand-logo" href="../views/index.php">
             <img src="images/logo.png"   style="width: auto; height: auto" alt="logo" />
           </a>
-          <a class="navbar-brand brand-logo-mini" href="index.php">
+          <a class="navbar-brand brand-logo-mini" href="../views/index.php">
             <img src="images/logo-mini.svg" alt="logo" />
           </a>
         </div>
